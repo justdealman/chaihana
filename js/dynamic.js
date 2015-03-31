@@ -134,11 +134,14 @@
 				scrollTop: mt+'px'
 			});
 		}
-		if ( $(window).width() < 480 ) {
-			mt = mt/($(window).width()/480)
+		var popupZoom = 1;
+		if ( $(window).width() < 795 ) {
+			mt = mt/($(window).width()/480);
+			popupZoom = $(window).width()/$('.popup').outerWidth();
 		}
 		$('.popup').css({
-			'top': mt+'px'
+			'top': mt+'px',
+			'zoom': popupZoom
 		}).stop(true,true).fadeIn(250);
 		return false;
 	});
